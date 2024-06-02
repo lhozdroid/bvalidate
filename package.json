@@ -1,0 +1,19 @@
+{
+  "name": "dev.lhoz.js.bvalidate",
+  "version": "1.0.0",
+  "description": "Bootstrap form validation",
+  "main": "src/bvalidate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bootstrap",
+    "form",
+    "validation"
+  ],
+  "author": "Luis Salas",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4"
+  }
+}

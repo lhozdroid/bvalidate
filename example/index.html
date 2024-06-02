@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <title>BValidate</title>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card shadow my-3">
+                        <div class="card-header">
+                            <h5>Example Form</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="form">
+                                <div class="mb-3">
+                                    <input class="form-control" data-blank="true" name="blank" type="text" placeholder="Leave in blank">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-required="true" name="required" type="text" placeholder="Put something">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-email="true" name="email" type="text" placeholder="Email">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-digits="true" name="digits" type="text" placeholder="Digits">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-number="true" name="number" type="text" placeholder="Number">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-alphanumeric="true" name="alphanumeric" type="text" placeholder="Alphanumeric">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-min-length="5" name="minLength" type="text" placeholder="Min length 5">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-max-length="5" name="maxLength" type="text" placeholder="Max length 5">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-min="5" name="min" type="text" placeholder="Min 5">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-max="5" name="max" type="text" placeholder="Max 5">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-equals-to="[name='email']" name="equalsTo" type="text" placeholder="Same as email.">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-not-equals-to="[name='email']" name="notEqualsTo" type="text" placeholder="Different than email.">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-credit-card="true" name="creditCard" type="text" placeholder="Credit card">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-postal-code-us="true" name="postalCodeUs" type="text" placeholder="Postal code">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-phone-us="true" name="phoneUs" type="text" placeholder="Phone number">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-url="true" name="url" type="text" placeholder="URL">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-ipv4="true" name="ipv4" type="text" placeholder="IPv4">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-ipv6="true" name="ipv6" type="text" placeholder="IPv6">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-ip="true" name="ip" type="text" placeholder="IP">
+                                </div>
+                                <div class="mb-3">
+                                    <input class="form-control" data-date="true" name="date" type="text" placeholder="Date">
+                                </div>
+                                <div class="mb-3">
+                                    <button class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="index.js" type="module"></script>
+    </body>
+</html>
