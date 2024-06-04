@@ -12,8 +12,5 @@
     "validation"
   ],
   "author": "Luis Salas",
-  "license": "MIT",
-  "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4"
-  }
+  "license": "MIT"
 }
