@@ -15,8 +15,6 @@ export default class BValidate {
         },
         "onFormErrors": (event, errors) => {
         },
-        "onFieldErrors": (event, errors) => {
-        },
 
         /** Render and clear validations */
         "renderFieldValidations": (field, errors) => {
@@ -63,9 +61,8 @@ export default class BValidate {
                     }
                 }
 
-                if (!hasErrors) {
-                    this.#config.onSubmit(e);
-                }
+                if (!hasErrors) this.#config.onSubmit(e);
+                else this.#config.onFormErrors(e, errors);
             });
 
             // Sets the input event on the fields
@@ -79,29 +76,37 @@ export default class BValidate {
         }
     }
 
-    #createEvents() {
-
-
+    /**
+     * Clears errors in a field
+     * @param field
+     */
+    #clearFieldValidations(field) {
+        const unorderedList = field.parentNode.querySelector("ul.list-unstyled.text-danger");
+        if (unorderedList != null) unorderedList.remove();
+        field.classList.remove("is-invalid");
+        field.classList.remove("is-valid");
     }
 
     /**
-     * Validates the complete form
-     * @returns {{}}
+     * Displays the errors in a field
+     * @param field
+     * @param errors
      */
-    #validateForm() {
-        const errors = {};
-
-        // Obtains the fields
-        const fields = this.#form.querySelectorAll("input,textarea,select");
-        for (let i = 0; i < fields.length; i++) {
-            const field = fields[i];
-            if (field.hasAttribute("name")) {
-                const fieldErrors = this.#validateField(field);
-                errors[field.getAttribute("name")] = fieldErrors;
-            }
+    #renderFieldValidations(field, errors) {
+        let listItems = "";
+        for (let i = 0; i < errors.length; i++) {
+            // language=HTML
+            listItems += `
+                <li>${errors[i]}</li>
+            `;
         }
 
-        return errors;
+        // language=HTML
+        const unorderedList = document.createRange().createContextualFragment(`
+            <ul class="list-unstyled text-danger">${listItems}</ul>
+        `);
+        field.after(unorderedList);
+        field.classList.add("is-invalid");
     }
 
     /**
@@ -134,36 +139,23 @@ export default class BValidate {
     }
 
     /**
-     * Displays the errors in a field
-     * @param field
-     * @param errors
+     * Validates the complete form
+     * @returns {{}}
      */
-    #renderFieldValidations(field, errors) {
-        let listItems = "";
-        for (let i = 0; i < errors.length; i++) {
-            // language=HTML
-            listItems += `
-                <li>${errors[i]}</li>
-            `;
+    #validateForm() {
+        const errors = {};
+
+        // Obtains the fields
+        const fields = this.#form.querySelectorAll("input,textarea,select");
+        for (let i = 0; i < fields.length; i++) {
+            const field = fields[i];
+            if (field.hasAttribute("name")) {
+                const fieldErrors = this.#validateField(field);
+                errors[field.getAttribute("name")] = fieldErrors;
+            }
         }
 
-        // language=HTML
-        const unorderedList = document.createRange().createContextualFragment(`
-            <ul class="list-unstyled text-danger">${listItems}</ul>
-        `);
-        field.after(unorderedList);
-        field.classList.add("is-invalid");
-    }
-
-    /**
-     * Clears errors in a field
-     * @param field
-     */
-    #clearFieldValidations(field) {
-        const unorderedList = field.parentNode.querySelector("ul.list-unstyled.text-danger");
-        if (unorderedList != null) unorderedList.remove();
-        field.classList.remove("is-invalid");
-        field.classList.remove("is-valid");
+        return errors;
     }
 }
 
